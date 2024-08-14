@@ -6,6 +6,10 @@ vim.g.maplocalleader = " "
 
 vim.g.have_nerd_font = false
 
+-- disable netrw at the very start of your init.lua
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- [[ Setting options ]]
 -- See `:help vim.opt`
 --  For more options, you can see `:help option-list`
@@ -114,37 +118,6 @@ end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-	{
-		"folke/tokyonight.nvim",
-		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			vim.cmd.colorscheme("tokyonight-night")
-
-			-- You can configure highlights by doing something like:
-			vim.cmd.hi("Comment gui=none")
-		end,
-	},
-	-- Highlight todo, notes, etc in comments
-	{
-		"folke/todo-comments.nvim",
-		event = "VimEnter",
-		dependencies = { "nvim-lua/plenary.nvim" },
-		opts = { signs = false },
-	},
-	{ "nvim-telescope/telescope.nvim", tag = "0.1.8", dependencies = { "nvim-lua/plenary.nvim" } },
-	{ "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
-	{
-		"lewis6991/gitsigns.nvim",
-		opts = {
-			signs = {
-				add = { text = "+" },
-				change = { text = "~" },
-				delete = { text = "_" },
-				topdelete = { text = "‾" },
-				changedelete = { text = "~" },
-			},
-		},
-	},
 	{
 		-- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
 		-- used for completion, annotations and signatures of Neovim apis
@@ -484,17 +457,5 @@ local plugins = {
 }
 local opts = {}
 
-require("lazy").setup(plugins, opts)
+require("lazy").setup("plugins")
 
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
-vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-
-local config = require("nvim-treesitter.configs")
-config.setup({
-	ensure_installed = { "lua", "python" },
-	highlight = { enable = true },
-	indent = { enable = true },
-})
