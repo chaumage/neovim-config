@@ -455,7 +455,6 @@ local plugins = {
 		end,
 	},
 }
-local opts = {}
 
 require("lazy").setup("plugins")
 
