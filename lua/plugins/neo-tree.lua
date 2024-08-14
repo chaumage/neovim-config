@@ -8,13 +8,13 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '<C-n>', ':Neotree filesystem reveal left<CR>', desc = 'NeoTree reveal' },
+    { '\\', ':Neotree filesystem reveal left<CR>', desc = 'NeoTree reveal' },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
-          ['<C-n>'] = 'close_window',
+          ['\\'] = 'close_window',
         },
       },
     },
