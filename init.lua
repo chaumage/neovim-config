@@ -24,7 +24,7 @@ vim.opt.shiftwidth = 2
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
 --  Experiment for yourself to see if you like it!
--- vim.opt.relativenumber = true
+vim.opt.relativenumber = true
 
 vim.opt.mouse = "a"
 vim.opt.showmode = false

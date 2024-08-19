@@ -8,7 +8,7 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree filesystem reveal left<CR>', desc = 'NeoTree reveal' },
+    { '\\', ':Neotree position=current<CR>', desc = 'NeoTree reveal' },
   },
   opts = {
     filesystem = {
