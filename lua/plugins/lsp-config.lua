@@ -94,6 +94,7 @@ return {
 
 			local servers = {
 				basedpyright = {},
+        zls = {},
 				lua_ls = {
 					settings = {
 						Lua = {

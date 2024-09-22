@@ -117,8 +117,4 @@ if not vim.loop.fs_stat(lazypath) then
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
-local plugins = {
-	{ "Bilal2453/luvit-meta", lazy = true },
-}
-
 require("lazy").setup("plugins")
