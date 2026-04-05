@@ -6,9 +6,9 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 	},
 	config = function()
-		local config = require("nvim-treesitter.configs")
+		local config = require("nvim-treesitter.config")
 		config.setup({
-			ensure_installed = { "lua", "python", "zig", "c" },
+			ensure_installed = { "lua", "python", "zig", "c", "cpp" },
 			highlight = { enable = true },
 			indent = { enable = true },
 			incremental_selection = {
